@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Shopping Cart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f0f0, #c0e0fc);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 800px;
+      animation: popIn 0.6s ease-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      text-align: center;
+      color: #007BFF;
+      margin-bottom: 20px;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: #f9f9f9;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .product h3 {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .product p {
+      color: green;
+      margin-bottom: 10px;
+    }
+
+    .product button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .product button:hover {
+      background: #0056b3;
+    }
+
+    .cart {
+      margin-top: 30px;
+    }
+
+    .cart h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      padding: 6px;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mini Shopping Cart</h1>
+    <div class="product-list">
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Shirt">
+        <h3>Cool Shirt</h3>
+        <p>₹499</p>
+        <button onclick="addToCart('Cool Shirt')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Shoes">
+        <h3>Running Shoes</h3>
+        <p>₹999</p>
+        <button onclick="addToCart('Running Shoes')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/3043/3043896.png" alt="Cap">
+        <h3>Stylish Cap</h3>
+        <p>₹199</p>
+        <button onclick="addToCart('Stylish Cap')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" alt="Bag">
+        <h3>Travel Bag</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Travel Bag')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="cart">
+      <h2>Cart Items</h2>
+      <ul id="cartItems"></ul>
+    </div>
+  </div>
+
+  <script src="cart.js"></script>
+</body>
+</html>
